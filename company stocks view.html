@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Animated RGB Grid Page</title>
+  <style>
+    /* Modern RGB Gradient Background Animation */
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(120deg, #ff4e50, #fc913a, #f9d423, #e0ff62, #1dd1a1, #54a0ff, #5f27cd);
+      background-size: 600% 600%;
+      animation: gradientMove 20s ease infinite;
+    }
+
+    @keyframes gradientMove {
+      0% { background-position: 0% 50%; }
+      25% { background-position: 50% 50%; }
+      50% { background-position: 100% 50%; }
+      75% { background-position: 50% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 40px auto;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+      padding: 20px;
+    }
+
+    .wide-block {
+      grid-column: 1 / -1;
+      height: 200px;
+      background-image: url('https://images.unsplash.com/photo-1506905925346-21bda4d32df4?auto=format&fit=crop&w=1200&q=80');
+      background-size: cover;
+      background-position: center;
+      position: relative;
+      border-radius: 15px;
+      overflow: hidden;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+      transition: transform 0.3s ease;
+    }
+
+    .block {
+      height: 150px;
+      background-size: cover;
+      background-position: center;
+      position: relative;
+      border-radius: 15px;
+      overflow: hidden;
+      box-shadow: 0 6px 16px rgba(0,0,0,0.25);
+      transition: transform 0.3s ease;
+    }
+
+    .wide-block:hover,
+    .block:hover {
+      transform: scale(1.03);
+    }
+
+    .overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0, 0, 0, 0.4);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 24px;
+      font-weight: bold;
+      text-shadow: 1px 1px 5px #000;
+      transition: background 0.3s ease;
+      border-radius: 15px;
+    }
+
+    .overlay:hover {
+      background: rgba(0, 0, 0, 0.6);
+    }
+
+    .london {
+      background-image: url('https://i.etsystatic.com/20798873/r/il/43f86d/2324118599/il_fullxfull.2324118599_ovhx.jpg');
+    }
+
+    .tokyo {
+      background-image: url('https://images.unsplash.com/photo-1505765050516-f72dcac9c60b?auto=format&fit=crop&w=800&q=80');
+    }
+
+    .paris {
+      background-image: url('https://t4.ftcdn.net/jpg/12/03/36/83/240_F_1203368327_2yOPyitWC1v0v6OweY5Ao9SwpdBhtKLZ.jpg');
+    }
+
+    .newyork {
+      background-image: url('https://images.unsplash.com/photo-1496442226666-8d4d0e62e6e9?auto=format&fit=crop&w=800&q=80');
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    @media (max-width: 768px) {
+      .container {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <a href="#world" class="wide-block">
+      <div class="overlay">World Countries</div>
+    </a>
+
+    <a href="#london" class="block london">
+      <div class="overlay">London</div>
+    </a>
+
+    <a href="#tokyo" class="block tokyo">
+      <div class="overlay">Tokyo</div>
+    </a>
+
+    <a href="#paris" class="block paris">
+      <div class="overlay">Paris</div>
+    </a>
+
+    <a href="#newyork" class="block newyork">
+      <div class="overlay">New York</div>
+    </a>
+  </div>
+
+</body>
+</html>
